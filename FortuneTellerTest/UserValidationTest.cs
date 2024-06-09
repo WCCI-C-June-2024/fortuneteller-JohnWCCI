@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using System;
 using System.Xml.Linq;
+using FortuneTeller.Models;
+using FortuneTeller.Exceptions;
 
 namespace FortuneTest
 {
@@ -11,7 +13,7 @@ namespace FortuneTest
     [TestFixture]
     public class UserValidationTest
     {
-        //private User testUser;
+        private User testUser;
 
 
         /// <summary>
@@ -20,7 +22,7 @@ namespace FortuneTest
         [SetUp]
         public void Setup()
         {
-            //testUser = new User();
+            testUser = new User();
         }
 
         /// <summary>
@@ -29,7 +31,8 @@ namespace FortuneTest
         [Test]
         public void First_Name_Test_for_Empty()
         {
-            //Assert.Throws<ValidateException>(() => testUser.FirstName = string.Empty);
+            Console.WriteLine(testUser);
+            Assert.Throws<ValidateException>(() => testUser.FirstName = string.Empty);
         }
 
         /// <summary>
@@ -38,8 +41,8 @@ namespace FortuneTest
         [Test]
         public void First_Name_Can_Not_Be_Greater_Then_50()
         {
-            //string pad = "Name";
-            //Assert.Throws<ValidateException>(() => testUser.FirstName = pad.PadLeft(200));
+            string pad = "Name";
+            Assert.Throws<ValidateException>(() => testUser.FirstName = pad.PadLeft(200));
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace FortuneTest
         [Test]
         public void Last_Name_Test_for_Empty()
         {
-            //Assert.Throws<ValidateException>(() => testUser.LastName = string.Empty);
+            Assert.Throws<ValidateException>(() => testUser.LastName = string.Empty);
         }
 
         /// <summary>
@@ -57,8 +60,8 @@ namespace FortuneTest
         [Test]
         public void Last_Name_Can_Not_Be_Greater_Then_50()
         {
-            //string pad = "Name";
-            //Assert.Throws<ValidateException>(() => testUser.LastName = pad.PadLeft(200));
+            string pad = "Name";
+            Assert.Throws<ValidateException>(() => testUser.LastName = pad.PadLeft(200));
         }
 
         /// <summary>

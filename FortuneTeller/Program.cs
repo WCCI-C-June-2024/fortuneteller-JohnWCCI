@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using FortuneTeller;
+
+ProcessUser process = new ProcessUser();
+process.StartProcess();
+
